@@ -1,15 +1,21 @@
 // @flow
 
-// SEALED - UNSEALED
-// SEALED object - Заполненный объект (добавить в него поля нельзя)
-const configSealed = {
-  db: 'test',
-  password: 'root'
+type NameType = {
+  name: string,
+  version: string,
+}
+type HistoryType = {
+  history: string[],
+  version: number
+}
+type User = {
+  // $Exact - делает типы строгими
+  ...$Exact<HistoryType>,
+  ...$Exact<NameType>,
 };
-// UNSEALED object - Пустой объект
-const config = {};
-const configUnsealed : {
-  [key: string] : number
-} = {};
-// Строковое поле (любое - например test) содержит числа
-config.test = 100;
+const user: User = {
+  name: 'Ivan',
+  history: ["history"],
+  // Берется тип последней переменной version при разворачивании оператором spread
+  version: 'major'
+}
