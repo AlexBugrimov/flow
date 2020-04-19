@@ -1,0 +1,14 @@
+{
+  "name": "flow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Bugrimov",
+  "license": "ISC",
+  "dependencies": {
+    "flow-bin": "^0.123.0"
+  }
+}
